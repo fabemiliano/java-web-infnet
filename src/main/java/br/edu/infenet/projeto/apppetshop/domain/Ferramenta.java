@@ -5,8 +5,8 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "encomenda")
-public class Encomenda extends Produto{
+@Table(name = "ferramenta")
+public class Ferramenta extends Produto{
 
 	private Float quantidade;
 
@@ -14,16 +14,16 @@ public class Encomenda extends Produto{
 
 	private String informacoesExtras;
 
-	public Encomenda() {
+	public Ferramenta() {
 	}
 
-	public Encomenda(Float quantidade, LocalDateTime dataPossivelEntrega, String informacoesExtras, String descricao, Float valor, Long codigo) {
+	public Ferramenta(Float quantidade, LocalDateTime dataPossivelEntrega, String informacoesExtras, String descricao, Float valor, Long codigo) {
 		super(descricao, valor, codigo);
 		this.quantidade = quantidade;
 		this.dataPossivelEntrega = dataPossivelEntrega;
 		this.informacoesExtras = informacoesExtras;
 	}
-	public Encomenda(Long id) {
+	public Ferramenta(Long id) {
 		super(id);
 	}
 

@@ -14,21 +14,23 @@ import java.util.List;
 
 @Order(4)
 @Component
-public class EncomendaLoader implements ApplicationRunner {
+public class FerramentaLoader implements ApplicationRunner {
 
 	@Autowired
     FerramentaService ferramentaService;
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		List<Ferramenta> ferramentas = new ArrayList<Ferramenta>();
-		ferramentas.add(new Ferramenta(150f, LocalDateTime.now().plusDays(10), "Safra 1", "Ferramenta 1", 1000.00f, 7L));
-		ferramentas.add(new Ferramenta(300f, LocalDateTime.now().plusDays(10), "Safra 2", "Ferramenta 2", 10.0f, 2000L));
-		ferramentas.add(new Ferramenta(300f, LocalDateTime.now().plusDays(10), "Safra 3", "Ferramenta 3", 2000.00f, 9L));
+		ferramentas.add(new Ferramenta(1f, LocalDateTime.now().plusDays(10), "Ferramenta 1", "Ferramenta 1", 100.00f, 7L));
+		ferramentas.add(new Ferramenta(2f, LocalDateTime.now().plusDays(10), "Ferramenta 2", "Ferramenta 2", 100.0f, 2000L));
+		ferramentas.add(new Ferramenta(3f, LocalDateTime.now().plusDays(10), "Ferramenta 3", "Ferramenta 3", 100.00f, 9L));
 
 		for(Ferramenta ferramenta : ferramentas) {
 			ferramenta.setUsuario(new Usuario("TesteUsuario1", "testeusuario1@teste.com", "1234"));
 			ferramenta.getUsuario().setId(1L);
 			ferramentaService.incluir(ferramenta);
 		}
+
+		System.out.println("Inserção Ferramenta no banco de dados - Sucesso");
 	}
 }

@@ -1,6 +1,6 @@
-package br.edu.infenet.projeto.appgestaoterrenofrutas.repository;
+package br.edu.infenet.projeto.apppetshop.repository;
 
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Produto;
+import br.edu.infenet.projeto.apppetshop.domain.Produto;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

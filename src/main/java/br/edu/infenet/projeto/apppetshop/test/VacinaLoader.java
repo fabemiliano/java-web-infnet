@@ -13,7 +13,7 @@ import java.util.List;
 
 @Order(5)
 @Component
-public class PolpaLoader implements ApplicationRunner {
+public class VacinaLoader implements ApplicationRunner {
 
 	@Autowired
     VacinaService vacinaService;
@@ -21,14 +21,15 @@ public class PolpaLoader implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		List<Vacina> vacinas = new ArrayList<Vacina>();
-		vacinas.add(new Vacina(true, 350f, "Vacina 1", "Maracuja", 4.50f, 1L));
-		vacinas.add(new Vacina(false, 50f, "Vacina 2", "Goiaba", 20.0f, 2L));
-		vacinas.add(new Vacina(true, 350f, "Vacina 3", "manga", 10.00f, 3L));
+		vacinas.add(new Vacina(true, 10f, "Vacina 1", "Anticorrosão de Pelos", 30f, 1L));
+		vacinas.add(new Vacina(false, 10f, "Vacina 2", "AntiRaiva", 50.0f, 2L));
+		vacinas.add(new Vacina(true, 15f, "Vacina 3", "AntiCarrapato", 20.00f, 3L));
 
 		for(Vacina vacina : vacinas) {
 			vacina.setUsuario(new Usuario("TesteUsuario1", "testeusuario1@teste.com", "1234"));
 			vacina.getUsuario().setId(1L);
 			vacinaService.incluir(vacina);
 		}
+		System.out.println("Inserção Vacina no banco de dados - Sucesso");
 	}
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EncomendaRepository extends CrudRepository<Ferramenta, Long> {
-    @Query("from Ferramenta e where e.usuario.id = :userid")
+public interface FerramentaRepository extends CrudRepository<Ferramenta, Long> {
+    @Query("from Ferramenta f where f.usuario.id = :userid")
     public List<Ferramenta> obterLista(Long userid);
 }

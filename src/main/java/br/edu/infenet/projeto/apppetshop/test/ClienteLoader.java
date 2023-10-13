@@ -1,9 +1,9 @@
-package br.edu.infenet.projeto.appgestaoterrenofrutas.test;
+package br.edu.infenet.projeto.apppetshop.test;
 
-import br.edu.infenet.projeto.appgestaoterrenofrutas.service.ClienteService;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Cliente;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Produto;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Usuario;
+import br.edu.infenet.projeto.apppetshop.service.ClienteService;
+import br.edu.infenet.projeto.apppetshop.domain.Cliente;
+import br.edu.infenet.projeto.apppetshop.domain.Produto;
+import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -24,17 +24,16 @@ public class ClienteLoader implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 
 		List<Cliente> clientes = new ArrayList<Cliente>();
-		clientes.add(new Cliente("Julio", "00000000001", "teste1@gmail.com"));
-		clientes.add(new Cliente("Cesar", "00000000002", "teste2@gmail.com"));
-		clientes.add(new Cliente("Reis", "00000000003", "teste3@gmail.com"));
-
-		System.out.println(Produto.buscarSaudacaoAtual());
+		clientes.add(new Cliente("TesteCliente1", "11111111111", "testecliente1@teste.com"));
+		clientes.add(new Cliente("TesteCliente2", "22222222222", "testecliente2@teste.com"));
+		clientes.add(new Cliente("TesteCliente3", "33333333333", "testecliente3@teste.com"));
 
 		for(Cliente cliente : clientes ) {
-			System.out.println("Cliente: " + cliente.toString() + "\n");
-			cliente.setUsuario(new Usuario("user1", "user1@gmail.com", "123"));
+			cliente.setUsuario(new Usuario("TesteUsuario1", "testeusuario1@teste.com", "1234"));
 			cliente.getUsuario().setId(1L);
 			clienteService.incluir(cliente);
 		}
+
+		System.out.println("Inserção Cliente no banco de dados - Sucesso");
 	}
 }

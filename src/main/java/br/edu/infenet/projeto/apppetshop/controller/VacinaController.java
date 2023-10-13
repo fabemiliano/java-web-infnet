@@ -1,7 +1,7 @@
 package br.edu.infenet.projeto.apppetshop.controller;
 
 import br.edu.infenet.projeto.apppetshop.domain.Vacina;
-import br.edu.infenet.projeto.apppetshop.service.PolpaService;
+import br.edu.infenet.projeto.apppetshop.service.VacinaService;
 import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,40 +12,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Controller
-public class PolpaController {
+public class VacinaController {
 
     @Autowired
-    private PolpaService polpaService;
+    private VacinaService vacinaService;
 
-    @GetMapping(value = "/polpa/lista")
+    @GetMapping(value = "/vacina/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
-        model.addAttribute("listaPolpa", polpaService.obterLista(usuario));
+        model.addAttribute("listaVacina", vacinaService.obterLista(usuario));
 
-        return "polpa/lista";
+        return "vacina/lista";
     }
 
-    @GetMapping(value = "/polpa/cadastro")
+    @GetMapping(value = "/vacina/cadastro")
     public String telaCadastro() {
 
-        return "polpa/cadastro";
+        return "vacina/cadastro";
     }
 
-    @PostMapping(value = "/polpa/incluir")
+    @PostMapping(value = "/vacina/incluir")
     public String incluir(Vacina vacina, @SessionAttribute("user") Usuario usuario) {
 
         vacina.setUsuario(usuario);
 
-        polpaService.incluir(vacina);
+        vacinaService.incluir(vacina);
 
-        return "redirect:/polpa/lista";
+        return "redirect:/vacina/lista";
     }
 
-    @GetMapping(value = "/polpa/excluir/{id}")
+    @GetMapping(value = "/vacina/excluir/{id}")
     public String exclusao(@PathVariable Long id) {
 
-        polpaService.excluir(id);
+        vacinaService.excluir(id);
 
-        return "redirect:/polpa/lista";
+        return "redirect:/vacina/lista";
     }
 }

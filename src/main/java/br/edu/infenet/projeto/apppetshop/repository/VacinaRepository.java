@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PolpaRepository extends CrudRepository<Vacina, Long> {
-    @Query("from Vacina p where p.usuario.id = :userid")
+public interface VacinaRepository extends CrudRepository<Vacina, Long> {
+    @Query("from Vacina v where v.usuario.id = :userid")
     public List<Vacina> obterLista(Long userid);
 }

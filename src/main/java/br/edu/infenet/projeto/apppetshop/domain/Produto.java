@@ -1,11 +1,11 @@
-package br.edu.infenet.projeto.apppetshop.vo;
+package br.edu.infenet.projeto.apppetshop.domain;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "tbl_produto")
+@Table(name = "produto")
 public abstract class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -95,20 +95,5 @@ public abstract class Produto {
     @Override
     public String toString() {
         return String.format("Descrição: %s - Valor: %.2f - Codigo: %d", descricao, valor, codigo);
-    }
-
-    public static String buscarSaudacaoAtual() {
-
-        String[] saudacao = new String[]{"Bom Dia", "Boa Tarde", "Boa Noite"};
-
-        Date dataAtual = new Date();
-
-        if (dataAtual.getHours() >= 0 && dataAtual.getHours() < 12) {
-            return saudacao[0].toString();
-        } else if (dataAtual.getHours() >= 12 && dataAtual.getHours() < 18) {
-            return saudacao[1].toString();
-        } else {
-            return saudacao[2].toString();
-        }
     }
 }

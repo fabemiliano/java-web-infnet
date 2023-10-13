@@ -1,10 +1,10 @@
-package br.edu.infenet.projeto.appgestaoterrenofrutas.controller;
+package br.edu.infenet.projeto.apppetshop.controller;
 
-import br.edu.infenet.projeto.appgestaoterrenofrutas.service.ClienteService;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.service.PedidoService;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.service.ProdutoService;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Pedido;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Usuario;
+import br.edu.infenet.projeto.apppetshop.service.ClienteService;
+import br.edu.infenet.projeto.apppetshop.service.PedidoService;
+import br.edu.infenet.projeto.apppetshop.service.ProdutoService;
+import br.edu.infenet.projeto.apppetshop.domain.Pedido;
+import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +28,7 @@ public class PedidoController {
     @GetMapping(value = "/pedido")
     public String telaCadastro(Model model, @SessionAttribute("user") Usuario usuario) {
 
-        model.addAttribute("solicitantes", clienteService.obterLista(usuario));
+        model.addAttribute("clientes", clienteService.obterLista(usuario));
 
         model.addAttribute("produtos", produtoService.obterLista(usuario));
 
@@ -37,7 +37,7 @@ public class PedidoController {
 
     @GetMapping(value = "/pedido/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
-        model.addAttribute("listagem", pedidoService.obterLista(usuario));
+        model.addAttribute("listaPedido", pedidoService.obterLista(usuario));
 
         return "pedido/lista";
     }

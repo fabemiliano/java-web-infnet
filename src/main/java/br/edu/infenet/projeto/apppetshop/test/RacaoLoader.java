@@ -1,9 +1,9 @@
 package br.edu.infenet.projeto.apppetshop.test;
 
 import br.edu.infenet.projeto.apppetshop.service.RacaoService;
-import br.edu.infenet.projeto.apppetshop.vo.Racao;
-import br.edu.infenet.projeto.apppetshop.vo.Produto;
-import br.edu.infenet.projeto.apppetshop.vo.Usuario;
+import br.edu.infenet.projeto.apppetshop.domain.Racao;
+import br.edu.infenet.projeto.apppetshop.domain.Produto;
+import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @Order(3)
 @Component
-public class FrutaLoader implements ApplicationRunner {
+public class RacaoLoader implements ApplicationRunner {
 
 	@Autowired
 	RacaoService racaoService;
@@ -24,17 +24,16 @@ public class FrutaLoader implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		List<Racao> racaos = new ArrayList<Racao>();
-		racaos.add(new Racao(350f, true, LocalDateTime.now().plusDays(10), "fruta 1", 15.50f, 4L));
-		racaos.add(new Racao(800f, false, LocalDateTime.now().plusDays(10), "fruta 2", 20.0f, 5L));
-		racaos.add(new Racao(600f, false, LocalDateTime.now().plusDays(10), "fruta 3", 50.00f, 6L));
-
-		System.out.println(Produto.buscarSaudacaoAtual());
+		racaos.add(new Racao(500f, true, LocalDateTime.now().plusDays(10), "Ração 1", 8.50f, 4L));
+		racaos.add(new Racao(200f, false, LocalDateTime.now().plusDays(10), "Ração 2", 4.0f, 5L));
+		racaos.add(new Racao(1000f, true, LocalDateTime.now().plusDays(10), "Ração 3", 16.50f, 6L));
 
 		for(Racao racao : racaos) {
-			racao.setUsuario(new Usuario("user1", "user1@gmail.com", "123"));
+			racao.setUsuario(new Usuario("TesteUsuario1", "testeusuario1@teste.com", "1234"));
 			racao.getUsuario().setId(1L);
-			System.out.println("racao" + racao.toString() + "\n");
 			racaoService.incluir(racao);
 		}
+
+		System.out.println("Inserção Ração no banco de dados - Sucesso");
 	}
 }

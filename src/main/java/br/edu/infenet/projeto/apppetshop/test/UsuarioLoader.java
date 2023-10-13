@@ -1,7 +1,7 @@
-package br.edu.infenet.projeto.appgestaoterrenofrutas.test;
+package br.edu.infenet.projeto.apppetshop.test;
 
-import br.edu.infenet.projeto.appgestaoterrenofrutas.service.UsuarioService;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Usuario;
+import br.edu.infenet.projeto.apppetshop.service.UsuarioService;
+import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -22,13 +22,14 @@ public class UsuarioLoader implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 
 		List<Usuario> usuarioList = new ArrayList<>();
-		usuarioList.add(new Usuario("user1", "user1@gmail.com", "123"));
-		usuarioList.add(new Usuario("user2", "user2@gmail.com", "123"));
-		usuarioList.add(new Usuario("user3", "user3@gmail.com", "123"));
+		usuarioList.add(new Usuario("TesteUsuario1", "testeusuario1@teste.com", "1234"));
+		usuarioList.add(new Usuario("TesteUsuario2", "testeusuario2@teste.com", "1234"));
+		usuarioList.add(new Usuario("TesteUsuario3", "testeusuario3@teste.com", "1234"));
 
 		for (Usuario usuario : usuarioList) {
-			System.out.println("Usuario:" + usuario.toString() + "\n");
 			usuarioService.incluir(usuario);
 		}
+
+		System.out.println("Inserção Usuário no banco de dados - Sucesso");
 	}
 }

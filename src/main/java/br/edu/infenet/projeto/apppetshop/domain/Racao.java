@@ -1,11 +1,11 @@
-package br.edu.infenet.projeto.apppetshop.vo;
+package br.edu.infenet.projeto.apppetshop.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tbl_fruta")
+@Table(name = "racao")
 public class Racao extends Produto{
 
 	private Float peso;

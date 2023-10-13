@@ -1,4 +1,4 @@
-package br.edu.infenet.projeto.apppetshop.vo;
+package br.edu.infenet.projeto.apppetshop.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "tbl_pedido")
+@Table(name = "pedido")
 public class  Pedido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String informacao;
 	private LocalDateTime data;
 	private boolean web;
@@ -19,6 +19,7 @@ public class  Pedido {
 	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
 	@ManyToMany(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idProduto")
 	private List<Produto> produtoList;
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
@@ -40,11 +41,11 @@ public class  Pedido {
 		this.produtoList = produtoList;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

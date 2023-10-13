@@ -1,36 +1,36 @@
 package br.edu.infenet.projeto.apppetshop.service;
 
-import br.edu.infenet.projeto.apppetshop.repository.FrutaRepository;
-import br.edu.infenet.projeto.apppetshop.vo.Racao;
-import br.edu.infenet.projeto.apppetshop.vo.Usuario;
+import br.edu.infenet.projeto.apppetshop.repository.RacaoRepository;
+import br.edu.infenet.projeto.apppetshop.domain.Racao;
+import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
 @Service
-public class FrutaService {
+public class RacaoService {
 
     @Autowired
-    private FrutaRepository frutaRepository;
+    private RacaoRepository racaoRepository;
 
     public Collection<Racao> obterLista(){
 
-        return (Collection<Racao>) frutaRepository.findAll();
+        return (Collection<Racao>) racaoRepository.findAll();
     }
 
     public Collection<Racao> obterLista(Usuario usuario){
 
-        return frutaRepository.obterLista(usuario.getId());
+        return racaoRepository.obterLista(usuario.getId());
     }
 
-    public void incluir(Racao polpa) {
+    public void incluir(Racao racao) {
 
-        frutaRepository.save(polpa);
+        racaoRepository.save(racao);
     }
 
     public void excluir(Long id) {
 
-        frutaRepository.deleteById(id);
+        racaoRepository.deleteById(id);
     }
 }

@@ -1,8 +1,8 @@
-package br.edu.infenet.projeto.appgestaoterrenofrutas.controller;
+package br.edu.infenet.projeto.apppetshop.controller;
 
-import br.edu.infenet.projeto.appgestaoterrenofrutas.service.ClienteService;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Cliente;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Usuario;
+import br.edu.infenet.projeto.apppetshop.service.ClienteService;
+import br.edu.infenet.projeto.apppetshop.domain.Cliente;
+import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -3,35 +3,35 @@ package br.edu.infenet.projeto.apppetshop.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "polpa")
-public class Polpa extends Produto {
+@Table(name = "vacina")
+public class Vacina extends Produto {
 
-    private boolean congelado;
+    private boolean receita;
 
     private Float quantidade;
 
     private String informacoes;
 
-    public Polpa() {
+    public Vacina() {
     }
 
-    public Polpa(boolean congelado, Float tamanho, String informacoes, String descricao, Float valor, Long codigo) {
+    public Vacina(boolean receita, Float tamanho, String informacoes, String descricao, Float valor, Long codigo) {
         super(descricao, valor, codigo);
-        this.congelado = congelado;
+        this.receita = receita;
         this.quantidade = tamanho;
         this.informacoes = informacoes;
     }
 
-    public Polpa(Long id) {
+    public Vacina(Long id) {
         super(id);
     }
 
-    public boolean isCongelado() {
-        return congelado;
+    public boolean isReceita() {
+        return receita;
     }
 
-    public void setCongelado(boolean congelado) {
-        this.congelado = congelado;
+    public void setReceita(boolean receita) {
+        this.receita = receita;
     }
 
     public Float getQuantidade() {
@@ -52,7 +52,7 @@ public class Polpa extends Produto {
 
     @Override
     public String toString() {
-        return String.format("%s - Congelado: %s - quantidade: %.2f - Marca: %s", super.toString(), congelado, quantidade, informacoes);
+        return String.format("%s - receita: %s - quantidade: %.2f - Marca: %s", super.toString(), receita, quantidade, informacoes);
     }
 
 }

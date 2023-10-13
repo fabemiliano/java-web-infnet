@@ -1,6 +1,6 @@
 package br.edu.infenet.projeto.apppetshop.controller;
 
-import br.edu.infenet.projeto.apppetshop.service.EncomendaService;
+import br.edu.infenet.projeto.apppetshop.service.FerramentaService;
 import br.edu.infenet.projeto.apppetshop.domain.Ferramenta;
 import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,40 +12,40 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Controller
-public class EncomendaController {
+public class FerramentaController {
 
     @Autowired
-    private EncomendaService encomendaService;
+    private FerramentaService ferramentaService;
 
-    @GetMapping(value = "/encomenda/lista")
+    @GetMapping(value = "/ferramenta/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
-        model.addAttribute("listaEncomenda", encomendaService.obterLista(usuario));
+        model.addAttribute("listaFerramenta", ferramentaService.obterLista(usuario));
 
-        return "encomenda/lista";
+        return "ferramenta/lista";
     }
 
-    @GetMapping(value = "/encomenda/cadastro")
+    @GetMapping(value = "/ferramenta/cadastro")
     public String telaCadastro() {
 
-        return "encomenda/cadastro";
+        return "ferramenta/cadastro";
     }
 
-    @PostMapping(value = "/encomenda/incluir")
+    @PostMapping(value = "/ferramenta/incluir")
     public String incluir(Ferramenta ferramenta, @SessionAttribute("user") Usuario usuario) {
 
         ferramenta.setUsuario(usuario);
 
-        encomendaService.incluir(ferramenta);
+        ferramentaService.incluir(ferramenta);
 
-        return "redirect:/encomenda/lista";
+        return "redirect:/ferramenta/lista";
     }
 
-    @GetMapping(value = "/encomenda/excluir/{id}")
+    @GetMapping(value = "/ferramenta/excluir/{id}")
     public String exclusao(@PathVariable Long id) {
 
-        encomendaService.excluir(id);
+        ferramentaService.excluir(id);
 
-        return "redirect:/encomenda/lista";
+        return "redirect:/ferramenta/lista";
     }
 }

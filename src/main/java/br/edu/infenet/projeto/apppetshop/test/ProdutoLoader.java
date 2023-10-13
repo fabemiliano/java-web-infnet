@@ -1,7 +1,7 @@
-package br.edu.infenet.projeto.appgestaoterrenofrutas.test;
+package br.edu.infenet.projeto.apppetshop.test;
 
-import br.edu.infenet.projeto.appgestaoterrenofrutas.service.ProdutoService;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.*;
+import br.edu.infenet.projeto.apppetshop.service.ProdutoService;
+import br.edu.infenet.projeto.apppetshop.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -23,15 +23,16 @@ public class ProdutoLoader implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 
 		List<Produto> produtoList = new ArrayList<>();
-		produtoList.add(new Fruta(350f, true, LocalDateTime.now().plusDays(10), "Produto 1", 15.50f, 4L));
-		produtoList.add(new Encomenda(800f, LocalDateTime.now().plusDays(10),"Encomenda Produto 1", "Produto 2", 20.0f, 5L));
-		produtoList.add(new Polpa(true, 300f, "Polpa Produto 3", "Produto 3", 50.00f, 6L));
+		produtoList.add(new Racao(350f, true, LocalDateTime.now().plusDays(10), "Ração - Produto 1", 16.00f, 4L));
+		produtoList.add(new Ferramenta(800f, LocalDateTime.now().plusDays(10),"------", "Ferramenta - Produto 2", 14.0f, 5L));
+		produtoList.add(new Vacina(true, 300f, "Manter em Local temperatura baixa", "Vacina - Produto 3", 30.00f, 6L));
 
 		for(Produto produto : produtoList) {
-			produto.setUsuario(new Usuario("user1", "user1@gmail.com", "123"));
+			produto.setUsuario(new Usuario("TesteUsuario1", "testeusuario1@teste.com", "1234"));
 			produto.getUsuario().setId(1L);
-			System.out.println("Produto:" + produto.toString() + "\n");
 			produtoService.incluir(produto);
 		}
+
+		System.out.println("Inserção Produto no banco de dados - Sucesso");
 	}
 }

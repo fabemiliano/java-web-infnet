@@ -1,8 +1,8 @@
-package br.edu.infenet.projeto.appgestaoterrenofrutas.service;
+package br.edu.infenet.projeto.apppetshop.service;
 
-import br.edu.infenet.projeto.appgestaoterrenofrutas.repository.PedidoRepository;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Pedido;
-import br.edu.infenet.projeto.appgestaoterrenofrutas.vo.Usuario;
+import br.edu.infenet.projeto.apppetshop.repository.PedidoRepository;
+import br.edu.infenet.projeto.apppetshop.domain.Pedido;
+import br.edu.infenet.projeto.apppetshop.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

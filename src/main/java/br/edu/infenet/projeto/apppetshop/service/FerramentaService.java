@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class EncomendaService {
+public class FerramentaService {
 
     @Autowired
     private FerramentaRepository ferramentaRepository;

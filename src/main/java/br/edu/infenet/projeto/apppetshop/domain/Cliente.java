@@ -1,9 +1,9 @@
-package br.edu.infenet.projeto.apppetshop.vo;
+package br.edu.infenet.projeto.apppetshop.domain;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tbl_cliente")
+@Table(name = "cliente")
 public class Cliente {
 
 	@Id
